@@ -1,0 +1,11 @@
+senario 1
+- mkfifo aaaa : aaaa라는 fifo를 만든다
+- ls -alF : 모든 파일을 출력해준다
+- ls -alF > aaaa & : 백그라운드로 실행시키지만 ls -alF의 출력 결과가 aaaa에 바로 저장된다
+- cat aaaa : aaaa에 담긴 정보가 출력된다
+
+senario 2
+- mkfifo aaaa : aaaa라는 fifo를 만든다
+- ls -alF : 모든 파일을 출력해준다
+- cat aaaa & : 백그라운드에서 aaaa에 값이 담길 때까지 기다린다
+- ls -alF > aaaa : ls -alF의 결과가 aaaa에 담기고, 그 후 cat aaaa가 실행된다.

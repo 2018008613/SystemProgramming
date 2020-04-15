@@ -1,0 +1,21 @@
+저번 주에 했던 quiz4 파일들을 cmake를 이용해 makefile을 만들고 build를 해 보았다.
+CMakeLists.txt 파일에
+add_executable("test"
+"main.c"
+"io.h"
+"write.c"
+"read.c"
+)
+내용을 적은 뒤 cmake .  명령어를 입력해보니
+CMakeCache.txt , Makefile , cmake_install.cmake 파일이 새로 생겼다.
+그 후 make 명령어를 입력해서 build해보니 test 실행 파일이 생성되었다.
+
+//debug-build
+
+$ mkdir build_debug
+$ cd build_debug
+$ cmake ­D CMAKE_BUILD_TYPE=Debug ..
+$ make VERBOSE=true
+명령어들을 이용해서 디버그 빌드를 한 후 cgdb로 디버깅을 해 보았다.
+
+cmake를 이용해서 makefile을 만든 후 build하니 훨씬 수월하게 make할 수 있었다.

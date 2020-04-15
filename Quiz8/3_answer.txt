@@ -1,0 +1,18 @@
+초기 상태에서 state의 값은 STATE_A이므로, 
+만약 threadA가 먼저 실행된다면
+pthread_mutex_lock(&mutex);
+while (state == STATE_B)usleep(10);
+pthread_mutex_unlock(&mutex);
+가 먼저 실행될 것이다.
+여기서 state는 STATE_A이므로 루프가 돌지 않게 된다.
+
+그런 후 threadB가 실행되면
+pthread_mutex_lock(&mutex);
+while (state == STATE_A)usleep(10);
+가 실행되는데,  여기서 state는 STATE_A이므로, 이 루프가 무한루프가 돌게 된다.
+왜냐하면 lock이 걸려버리기 때문에
+threadA에서 
+pthread_mutex_lock(&mutex);
+state = STATE_B;
+pthread_mutex_unlock(&mutex);
+가 실행되지 못해서 state를 STATE_B로 바꾸지 못하기 때문에 무한루프가 돌게 된다.

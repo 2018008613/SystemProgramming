@@ -1,0 +1,10 @@
+grep 'men' GrepMe : GrepMe 파일에서 men을 기본 정규 표현식으로 해석해서 이 PATTERN이 포함된 부분을 찾아 그 줄을  출력해준다
+grep 'fo*' GrepMe : GrepMe 파일에서 f뒤에 0개 이상의 o가 붙어있는 부분을 기본 정규 표현식으로 해석해서 이 PATTERN이 포함된 부분을 찾아 그 줄을 출력해준다
+egrep 'fo+' GrepMe : GrepMe 파일에서 f 뒤에 1개 이상의 o가 붙어있는 PATTERN을 확장 정규 표현식으로 해석해서 이 PATTERN이 포함된 부분을 찾아 그 줄을 출력해준다
+egrep -n '[Tt]he' GrepMe : GrepMe 파일에서 The나 the를 확장 정규 표현식으로 해석해서 이 PATTERN이 들어간 부분을 찾아 그 줄과 줄번호를 출력해준다
+fgrep 'The' GrepMe : GrepMe 파일에서 The를 일반 문자열로 해석해서 이 PATTERN이 포함된 부분을 찾아 그 줄을 출력해준다
+egrep 'NC+[0-9]*A?' GrepMe 파일에서 N 뒤에 1개 이상의 C가 붙어있고 그 뒤에 0~9사이의 숫자가 0개 이상 있고
+그 뒤에 A가 붙어있거나 붙어있지 않은 PATTERN을 확장 정규 표현식으로 해석해서 이 PATTERN이 포함된 부분을 찾아 그 줄을 출력해준다.
+fgrep -f expfile GrepMe : expfile에 적혀져있는 내용을 PATTERN으로 사용한다
+이 PATTERN을 일반 문자열로 해석하여 GrepMe 파일에서 일치하는 부분을 찾아 그 줄을 출력한다.
+
